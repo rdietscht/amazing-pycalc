@@ -1,6 +1,6 @@
 """Simple Python module used for math computations.
 
-    Authors: Rafael D. and [Your Name]
+    Authors: Rafael D. and [Yo Name Fool]
 
 """
 import math
@@ -18,7 +18,6 @@ def prompt_user(opts):
 def add_numbers():
     print(f"\nADDITION OPERATION:\n")
     a, b = input('Enter in two, space-separated numbers "a b": ').split()
-    a, b = [int(a), int(b)]
     print(f"RESULT (a + b): {a + b}")
 
 
@@ -33,7 +32,7 @@ def mlt_numbers():
     print(f"\nMULTIPLICATION OPERATION:\n")
     a, b = input('Enter in two, space-separated numbers "a b": ').split()
     a, b = [int(a), int(b)]
-    print(f"RESULT (a * b): {a * b}")
+    print(f"RESULT (a * b): a * b")
 
 
 def div_numbers():
@@ -47,7 +46,7 @@ def exp_numbers():
     print(f"\nEXPONENT OPERATION:\n")
     a, b = input('Enter in two, space-separated numbers "a b": ').split()
     a, b = [int(a), int(b)]
-    print(f"RESULT (a ^ b): {a * b}")
+    print(f"RESULT (a ^ b): {a ** b}")
 
 
 def avg_numbers():
@@ -57,8 +56,10 @@ def avg_numbers():
 
     # Sum, then divide by number of user entries.
     total = 0.0
-    for num in nums:
-        total += num
+    i = 0
+    while (i <= len(nums)):
+        total += nums[i]
+        i += 1
 
     print(f"RESULT (avg): {total / len(nums)}")
 
@@ -67,7 +68,16 @@ def hyp_numbers():
     print("\nHYPOTENUSE OPERATION:\n")
     a, b = input('Enter in two, space-separated numbers "a b": ').split()
     a, b = [int(a), int(b)]
-    print(f"RESULT (hypotenuse): {math.sqrt((a ** 2) + (b ** 2))}")
+
+    # Compute the exponent of both a AND b.
+    a_sqrd = 0.0
+    b_sqrd = 0.0
+    for i in range(a):
+        a_sqrd += a
+    for i in range(b):
+        b_sqrd += b
+
+    print(f"RESULT (hypotenuse): {math.sqrt(a_sqrd + b_sqrd)}")
 
 
 def main():
@@ -75,38 +85,39 @@ def main():
     # Define options for the calculator.
     opts = [
         ('A', 'Addition', add_numbers),
-        ('B', 'Subtraction'),
-        ('C', 'Multiplication'),
-        ('D', 'Division'),
-        ('E', 'Exponentiation'),
-        ('F', 'Average'),
-        ('G', 'Hypotenuse')
+        ('B', 'Subtraction', sub_numbers),
+        ('C', 'Multiplication', mlt_numbers),
+        ('D', 'Division', div_numbers),
+        ('E', 'Exponentiation', exp_numbers),
+        ('F', 'Average', avg_numbers),
+        ('G', 'Hypotenuse', hyp_numbers)
     ]
 
     prompt_user(opts)
     user_in = input('Enter option: ').upper()
     while (user_in != 'Q'):
 
-        if (user_in == 'A'):
+        # Use the defined options for our calculator to compute user inputs.
+        if (user_in == opts[0][0]):
             opts[0][2]()
-        elif (user_in == 'B'):
-            sub_numbers()
-        elif (user_in == 'C'):
-            mlt_numbers()
-        elif (user_in == 'D'):
-            div_numbers()
-        elif (user_in == 'E'):
-            exp_numbers()
-        elif (user_in == 'F'):
-            avg_numbers()
-        elif (user_in == 'G'):
-            hyp_numbers()
+        elif (user_in == opts[1][0]):
+            opts[1][2]()
+        elif (user_in == opts[2][0]):
+            opts[2][2]()
+        elif (user_in == opts[3][0]):
+            opts[3][2]()
+        elif (user_in == opts[4][0]):
+            opts[4][2]()
+        elif (user_in == opts[5][0]):
+            opts[5][2]()
+        elif (user_in == opts[6][0]):
+            opts[6][2]()
         else:
             print(f"\nInvalid option {user_in}, please select a valid option.")
 
         # Keep asking for user input.
         prompt_user(opts)
-        user_in = input('Enter option: ')
+        user_in = input('Enter option: ').upper()
 
 
 if __name__ == '__main__':
