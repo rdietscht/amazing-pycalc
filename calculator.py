@@ -1,6 +1,6 @@
 """Simple Python module used for math computations.
 
-    Authors: Rafael D. and [Yo Name Fool]
+    Authors: Rafael D. and [Yo Name Broski]
 
 """
 import math
