@@ -1,6 +1,10 @@
 """Simple Python module used for math computations.
 
+<<<<<<< HEAD
     Authors: Rafael D. and Broski
+=======
+    Authors: Rafael D. and Michael Stewart
+>>>>>>> aa00330ae459d4a6cb7110f0bd4621ff80cec242
 
 """
 import math
