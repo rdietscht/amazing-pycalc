@@ -1,6 +1,6 @@
 """Simple Python module used for math computations.
 
-    Authors: Rafael D. and [Yo Name Broski]
+    Authors: Rafael D. and Broski
 
 """
 import math
@@ -18,7 +18,7 @@ def prompt_user(opts):
 def add_numbers():
     print(f"\nADDITION OPERATION:\n")
     a, b = input('Enter in two, space-separated numbers "a b": ').split()
-    print(f"RESULT (a + b): {a + b}")
+    print(f"RESULT (a + b): {int(a) + int(b)}")
 
 
 def sub_numbers():
